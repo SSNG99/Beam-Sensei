@@ -1,23 +1,17 @@
-# Use the official lightweight Python image.
-# httpshub.docker.com_python
-FROM python3
+# Dockerfile example:
+FROM python:3.8-slim
 
-# Allow statements and log messages to immediately appear in the Knative logs
-ENV PYTHONUNBUFFERED True
+# Working directory
+WORKDIR /app
 
-EXPOSE 8080
+# Copy requirements.txt
+COPY requirements.txt .
 
-# Copy local code to the container image.
-ENV APP_HOME app
-WORKDIR $APP_HOME
-COPY . .
-
-# Install production dependencies.
+# Install needed Python packages
 RUN pip install -r requirements.txt
 
-# Run the web service on container startup. Here we use the gunicorn
-# webserver, with one worker process and 8 threads.
-# For environments with multiple CPU cores, increase the number of workers
-# to be equal to the cores available.
-# Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
-CMD streamlit run --server.port 8080 --server.enableCORS false new.py
+# Copy the rest of the app's source code
+COPY . .
+
+# Set the command
+CMD ["streamlit", "run", "new.py"]
