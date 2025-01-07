@@ -1,4 +1,4 @@
-python==3.11
+python==3.11.7
 numpy==1.20
 openpyxl==2.6.4
 setuptools==75.7.0
