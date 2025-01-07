@@ -609,7 +609,7 @@ def main():
         # Left Panel: Beam Input Section
         with left_col:
             # Beam_Type = sheet_db('A4:A1021').value
-            Beam_Type = [sheet_db[f'{'A'}{row}'].value for row in range(4, 1021 + 1)]
+            Beam_Type = [sheet_db[f"{'A'}{row}"].value for row in range(4, 1021 + 1)]
             Beam_Selection = st.selectbox("Select Beam Type:", Beam_Type, index=0)
             # Similarity_Type = sheet_db('AW28:AW29').value
             Similarity_Type = [sheet_db[f'{'AW'}{row}'].value for row in range(28, 29 + 1)]
