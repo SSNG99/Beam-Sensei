@@ -1,9 +1,6 @@
 # Dockerfile example:
 FROM python:3.8-slim
 
-# Working directory
-WORKDIR /app
-
 # Copy requirements.txt
 COPY requirements.txt .
 
