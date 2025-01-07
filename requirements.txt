@@ -1,6 +1,5 @@
 numpy==1.23.0
 openpyxl==2.6.4
-setuptools==75.7.0
 plotly==5.11.0
 xlwings==0.30.0
 matplotlib==3.7.1
