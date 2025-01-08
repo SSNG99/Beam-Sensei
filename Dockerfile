@@ -1,21 +1,20 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3-slim
 
-# Keeps Python from generating .pyc files in the container
-ENV PYTHONDONTWRITEBYTECODE=1
-
-# Turns off buffering for easier container logging
-ENV PYTHONUNBUFFERED=1
-
-# Install pip requirements
-COPY requirements.txt .
-RUN python -m pip install -r requirements.txt
-
+# Set the working directory in the container
 WORKDIR /app
-COPY . /app
+
+# Copy the requirements file into the container
+COPY requirements.txt .
+
+# Install the dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code into the container
+COPY . .
 
 # Expose the port Streamlit is running on
 EXPOSE 8080
 
-# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["streamlit", "run", "new.py"]
+# Command to run the Streamlit app
+CMD ["streamlit", "run", "your_script.py"]
