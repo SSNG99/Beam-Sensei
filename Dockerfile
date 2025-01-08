@@ -13,12 +13,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . .
 
-# Ensure that Streamlit is in the PATH
+# Ensure the correct PATH
 ENV PATH="/root/.local/bin:${PATH}"
 
-# Expose the port Streamlit is running on
-EXPOSE 8501
+# Expose the port Streamlit is running on (use 8080)
 EXPOSE 8080
 
 # Command to run the Streamlit app
-CMD ["streamlit", "run", "your_script.py"]
+CMD ["streamlit", "run", "your_script.py", "--server.port", "8080", "--server.headless", "true"]
