@@ -4,7 +4,6 @@ import pandas as pd
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import xlwings as xw
-import openpyxl
 import matplotlib.patches as patches
 import sfd_slp as sfd
 
