@@ -20,4 +20,4 @@ ENV PATH="/root/.local/bin:${PATH}"
 EXPOSE 8080
 
 # Command to run the Streamlit app
-CMD ["streamlit", "run", "your_script.py", "--server.port", "8080", "--server.headless", "true"]
+CMD ["streamlit", "run", "new.py", "--server.port", "8080", "--server.headless", "true"]
